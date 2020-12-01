@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="LWC 5 - LDS - Form - Edit Record - Using recordEditForm" icon-name="standard:account">
+        <lightning-record-edit-form 
+        record-id={recordId}
+        object-api-name="Account"
+        onsuccess={handleSuccess}
+        onsubmit={handleSubmit}>
+        <lightning-messages></lightning-messages>
+        <lightning-input-field field-name="Name"></lightning-input-field>
+        <lightning-button class="slds-m-top_small" variant="brand" type="submit" name="Update" label="Update"></lightning-button>
+        </lightning-record-edit-form>
+    </lightning-card>
+</template>

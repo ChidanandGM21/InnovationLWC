@@ -1,0 +1,44 @@
+<template>
+    <Lightning-card title="LWC25-Add/Del Rows With Dep. Picklist" icon-name="standard:account">
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+            <thead>
+            <th>Country</th>
+            <th>State</th>
+            <th>Action</th>
+            </thead>
+            <tbody>
+                <template iterator:it={listOfRecords}>
+                
+                    <tr key={index}>
+                        <td>
+						<lightning-combobox name={it.index} label="" value={it.value.Country__c} placeholder="Select Progress" options={countries} onchange={handleChange}>
+						</lightning-combobox>
+                        </td>
+                    <td>
+						<lightning-combobox name={it.index} label="" value={it.value.State__c} placeholder="Select Progress" options={it.value.st}
+						 onchange={handleChange}>
+						</lightning-combobox>
+                    </td>
+                    <td>
+						
+                        <template if:true={it.first}>
+                            <a onclick={AddNewRow}>
+                                <lightning-icon icon-name="utility:add" class="slds-icon slds-icon_small" size="small" ></lightning-icon>
+								<span class="slds-assistive-text">Add Icon</span>
+                            </a>
+                        </template>
+                      
+                        <template if:false={it.first}>
+                            <a onclick={removeRow}>
+                                <lightning-icon icon-name="utility:delete" class="slds-icon slds-icon_small" size="small"></lightning-icon>
+								<span class="slds-assistive-text">Delete Icon</span>
+                            </a>
+                        </template>
+                    </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+
+    </Lightning-card>
+</template>

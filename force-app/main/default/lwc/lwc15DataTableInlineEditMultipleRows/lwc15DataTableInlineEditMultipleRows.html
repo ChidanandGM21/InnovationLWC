@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title="LWC 16 - Create a Data Table with Inline Editing - Multiple Rows" icon-name="standard:contact">
+        <div class="slds-m-around_medium">
+            <template if:true={contact.data}>
+                <lightning-datatable key-field="Id" columns={columns} data={contact.data} onsave={handleSave}>
+                </lightning-datatable>
+            </template>
+            <template if:true={contact.error}>
+
+            </template>
+        </div>
+        <div class="slds-m-around_medium">
+            <p>
+				 To enable inline editing for multiple rows, 
+                 specify which fields (columns) are editable and<br/>
+                 use the <span style="color:green">updateRecord(recordInput,
+				clientOptions) wire adapter</span>
+            </p>
+            <p>
+				<span style="color:red"> updateRecord(recordInput, clientOptions) expects a single record only.</span> <br/>
+                 So you must pass in a recordInput object for each
+				 record whose fields you are updating. <br/>
+                 <span style="color:green">In this example, recordInputs contains an object with the updated fields for multiple
+				 records, which are passed to updateRecord() for processing.</span>
+            </p>
+        </div>
+    </lightning-card>
+</template>

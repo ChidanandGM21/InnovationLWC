@@ -1,0 +1,13 @@
+<template>
+	<Lightning-card title="LWC18 - Events - Communicate between Non-Nested Lightning Web Components(Pub Sub Library)" icon-name="standard:contact">
+		<div class="ele1">
+			Vehicle Components - {log}
+			<div class="subComp">
+				<c-lwc16-Event-Parent onmodelclick={captEvent}></c-lwc16-Event-Parent>
+			</div>
+			<div class="subComp">
+				<c-lwc17-Event-Handle-Pub-Sub></c-lwc17-Event-Handle-Pub-Sub>
+			</div>
+		</div>
+	</Lightning-card>
+</template>

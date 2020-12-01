@@ -1,0 +1,43 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="render" value="{!this}" action="{!c.onRender}"/>
+    <aura:attribute name="dataArray" type="List"/>
+    
+    <aura:attribute name="stateList" type="List"/>
+    
+    <aura:attribute name="stateCityMap" type="Object"/>
+    
+    <div aura:id="parent-aura-div-id">
+        <table class="slds-table slds-table_bordered slds-table_col-bordered ">
+            <thead>
+                <tr>
+                    <th style="width:10px;">Row #</th>
+                    <th style="width:20px;">State</th>
+                    <th style="width:20px;">City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.dataArray}" var="dataVar">
+                    <tr>
+                        <td>{!dataVar.name}</td>
+                        <td id="{! dataVar.name + '_state_td'}">
+                            <select class="slds-select" 
+                                    id="{! dataVar.name + '_state'}" 
+                                    onchange="{!c.stateChanged}">
+                                <aura:iteration items="{!v.stateList}" var="stateVar">
+                                    <option text="{!stateVar}" 
+                                            selected="{! stateVar eq dataVar.state}"/>  
+                                </aura:iteration>
+                            </select>
+                        </td>
+                        <td id="{! dataVar.name +'_city_td'}">
+                            <select class="slds-select" 
+                                    id="{! dataVar.name + '_city'}">
+                            </select>
+                        </td>
+                    </tr>
+                </aura:iteration>               
+            </tbody>
+        </table>
+    </div>
+</aura:component>

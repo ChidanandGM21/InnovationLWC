@@ -1,0 +1,29 @@
+<template>
+		<lightning-card title="LWC 15 - Create a Data Table with Inline Editing - Single Row" icon-name="standard:contact">
+			<div class="slds-m-around_medium">
+				<template if:true={contact.data}>
+					<lightning-datatable 
+						key-field="Id"
+						data={contact.data}
+						columns={columns}
+						draft-values={draftValues}
+						onsave={handleSave}>
+					</lightning-datatable>
+				</template>
+				<template if:true={contact.error}>
+					<!--  handle error  -->
+				</template>
+			</div>
+			<div class="slds-m-around_medium">
+				<p><b>The <span style="color:green">key-field</span> attribute maps each row to a contact record.
+					 The ShowToastEvent event displays a toast message to indicate a successful save, 
+					 which is dispatched in the onsave event handler.<br/>
+					 <span style="color:green">@wire(getContactList)</span> uses a wired property contact to return the data property.<br/>
+					 <span style="color:green">refreshApex(this.contact)</span> refreshes the list of contacts from the Apex method so that the datatable always presents the
+					 latest data.<br/>
+					 <span style="color:pink">After making changes, when a user presses the Tab key or clicks outside the cell, the datatable footer appears with the
+					 Cancel and Save buttons. To hide the datatable footer, clear the draftValues property.</span>
+				</b></p>
+			</div>
+		</lightning-card>
+</template>

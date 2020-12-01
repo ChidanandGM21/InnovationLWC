@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="LWC 24 -  MAP Iteration (Map<String,List<String>>)">
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered">
+            <thead>
+                <tr>
+                    <th>Country</th>
+                    <th>State</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={mapsl} for:item="item">
+                    <tr key={item.key}>
+                        <td><div>{item.key}</div></td>
+                        <td>
+                            <template for:each={item.value} for:item="val">
+                                <div key={val}><b>{val}</b></div>
+                            </template>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </lightning-card>
+</template>

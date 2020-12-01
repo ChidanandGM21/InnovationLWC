@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="LWC23 - Map Iteration (Map<String,String>)">
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered">
+            <thead>
+                <tr class="slds-text-title_caps">
+                    <th scope="col">State</th>
+                    <th scope="col">Country</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={mapss} for:item="item">
+                    <tr key={item.key}>
+                        <td>{item.key}</td>
+                        <td>{item.value}</td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </lightning-card>
+
+</template>

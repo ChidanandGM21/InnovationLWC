@@ -1,0 +1,23 @@
+<template>
+<lightning-card title="LWC 20 - Method - Communication using Method in LWC">
+    <lightning-layout>
+        <lightning-layout-item flexibility="auto" padding="around-small">
+            <lightning-input label="Input Phrase" onchange={handlePhraseChange}></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <label class="slds-text-body_regular">Output Phrase</label>
+            <c-lwc-Method></c-lwc-Method>
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="auto" padding="around-small">
+            <p style="color:green">
+                changeUpperCase method is declared as <b>public with @api decorator</b> so another component can call this method
+                        </p>
+                        <p style="color:green">
+<b>querySelector()</b> returns the first element that matches the selector in DOM, whereas <b>querySelectAll()</b> returns the array of
+DOM elements if we will pass the parameter as class or data-* value.
+                        </p>
+                    </lightning-layout-item>
+    </lightning-layout>
+
+</lightning-card>
+</template>

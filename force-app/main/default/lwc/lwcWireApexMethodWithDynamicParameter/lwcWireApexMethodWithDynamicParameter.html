@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="LWC 11 - Wire Service - Wire Apex Method with Dynamic Parameter" icon-name="standard:account">
+        <div class="slds-m-around_medium">
+            <lightning-input type="search" onchange={handleKeyChange} class="slds-m-bottom_small" label="Search" value={searchKey}></lightning-input>
+                <template if:true={contacts.data}>
+                    <template for:each={contacts.data} for:item="contact">
+                        <p key={contact.id}>{contact.Name}</p>
+                    </template>
+                </template>
+                <template if:false={contacts}>
+                    <p>no records returned</p>
+                </template>
+                
+        </div>
+    </lightning-card>
+</template>

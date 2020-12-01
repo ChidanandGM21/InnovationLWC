@@ -1,0 +1,26 @@
+<template>
+	<lightning-card title="LWC 14 - Import Object and Fields from Salesforce Schema" icon-name="standard:account">
+		<template if:true={contact.data}>
+			<div class="slds-m-around_medium">
+				<p>{name}</p>
+				<p>{title}</p>
+				<p>
+					<lightning-formatted-email value={email}></lightning-formatted-email>
+				</p>
+			</div>
+		</template>
+		<div class="slds-m-around_medium">
+			<p>The JavaScript imports the getSObjectValue function and the getSingleContact method from @salesforce/apex. It imports
+				references to contact fields from @salesforce/schema.
+			</p>
+			<br/>
+				<p>
+					The Apex method is wired to the contact property. The name, title, and email properties in the template have getters that
+					call getSObjectValue() to extract the value from the specified field.
+
+				</p>
+
+		</div>
+
+	</lightning-card>
+</template>

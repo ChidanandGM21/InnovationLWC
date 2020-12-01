@@ -1,0 +1,81 @@
+<template>
+	<lightning-card title="LWC22 - Navigation System">
+        <lightning-layout multiplerows = "true" verticalalign="center">
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-button variant="brand" label="Current Tab" title="Current Tab" onclick={navigateCurrentTab}></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-button variant="brand" label="Object Home" title="Object Home" onclick={navigateToObjectHome}></lightning-button>
+            </lightning-layout-item>
+			<lightning-layout-item padding="around-small" size="3">
+				<lightning-button variant="brand" label="List View" title="List View" onclick={navigateToListView}></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+				<lightning-button variant="brand" label="View Record" title="View Record" onclick={navigateToRecordView}></lightning-button>
+			</lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout multiplerows = "true" verticalalign="center">
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-button variant="brand" label="New Record" title="New Record" onclick={navigateToNewRecord}></lightning-button>
+            </lightning-layout-item>
+			<lightning-layout-item padding="around-small" size="3">
+				<lightning-button variant="brand" label="Edit Record" title="Edit Record" onclick={navigateToRecordEditPage}></lightning-button>
+			</lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-button variant="brand" label="Related List View" title="Related List View" onclick={navigateToRelatedList}></lightning-button>
+            </lightning-layout-item>
+			<lightning-layout-item padding="around-small" size="3">
+				<lightning-button variant="brand" label="Web Page" title="Web Page" onclick={navigateToWebPage}></lightning-button>
+			</lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout multiplerows="true" verticalalign="center">
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-button variant="brand" label="Recent List View" title="Recent List View" onclick={navigateAccountRecentView}></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-button variant="brand" label="Navigate To component" title="Navigate to Component" onclick={navigateToComponent}></lightning-button>
+            </lightning-layout-item>
+			<lightning-layout-item padding="around-small" size="3">
+				<lightning-button variant="brand" label="Standard Home Page" title="Standard Home Page" onclick={navigateToHomePage}></lightning-button>
+			</lightning-layout-item>
+			<lightning-layout-item padding="around-small" size="3">
+				<lightning-button variant="brand" label="Standard Chatter Page" title="Standard Chatter Page" onclick={navigateToChatterHome}></lightning-button>
+			</lightning-layout-item>
+        </lightning-layout>
+		<lightning-layout multiplerows="true" verticalalign="center">
+			<lightning-layout-item padding="around-small" size="3">
+				<lightning-button variant="brand" label="File Home" title="File Home" onclick={navigateToFilesHome}></lightning-button>
+			</lightning-layout-item>
+		</lightning-layout>
+            <div class="slds-p-around_medium">
+            <P>To generate a <b style="color:red">URL or navigate to a page reference</b>, use the <b style="color:purple">lightning-navigation service wire adapters and functions</b></p>
+            <h1><u> <b style="color:green">Navigation Methods</b></u></h1>
+			<ul style="list-style-type:circle;">
+				<li><b>CurrentPageReference</b>
+                    <ul class="slds-p-around_medium" style="list-style-type:square;">
+                        <li>Get a reference to the current page in Salesforce</li>
+                        <li>Use the page reference to create a deep link to the page.</li>
+                    </ul>
+                </li>
+                <li><b>NavigationMixin</b>
+				    <ul class="slds-p-around_medium" style="list-style-type:square;">
+                        <li><b style="color:blue">[NavigationMixin.Navigate](pageReference, [replace])</b> - A component calls this API to navigate to another page in the application.</li>
+                        <li><b style="color:blue">[NavigationMixin.GenerateUrl](pageReference)</b> - A component calls this API to get a promise that resolves to the resulting
+						URL. The component can use the URL in the href attribute of an anchor. It can also use the URL to open a new window using
+						the window.open(url) browser API.</li>
+				    </ul>
+                    
+                </li>
+			</ul>
+        </div>
+        <div class="slds-p-around_medium">
+			 <b style="color:red">Note:</b><br/>
+            <p style="color:blue">
+				If you are navigating to Aura Lightning Component from LWC, 
+                you need to implement the lightning:isUrlAddressable interface
+				in your Aura Lightning Component.
+            </p>
+
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title="LWC21-Events-Communicate between Nested Lightning Web Component-(Event Listner-Programmatically)">
+        <lightning-layout>
+            <lightning-layout-item flexibility="auto" padding="around-small">
+                <div class="padding-around:small">
+                    {question}
+                </div>
+                <div class="answClass">
+                    {answer}
+                </div>
+                <div class="slds-m-top_medium">
+                    <c-lwc21-Events-Programatically></c-lwc21-Events-Programatically>
+                </div>
+                <div class="slds-p-around_small">
+                    <h1 style="color:red">Custom Event Rules</h1>
+                    <p>To create custom events in LWC, need to use <b style="color:blue">CustomEvent()</b> constructor which will contain one required parameter as Custom
+					Event Name and the detail of the event. It will pass any kind of data using detail property</p>
+					<p>To dispatch custom events in LWC, need to use <b style="color:blue">EventTarget.dispatchEvent()</b> method.</p>
+					<p>To listen the event, we have two types such as <b style="color:blue">Event Listener in Declaratively</b> and <b style="color:blue">Event Listener in Programmatically</b>.</p>
+					<p>We need to add <b style="color:blue">“on” in prefix</b> in the event name <b style="color:blue">in Parent Component during calling of Child Component</b> to make the Event Listener
+					in Declaratively.</p>
+					<p>We need to make the event listener using <b style="color:blue">this.template.addEventListener() or this.addEventListener()</b> in the <b style="color:red">constructor()/or connectedCallback()</b>
+					of the Parent Component’s JS file as the part of Event Listener in Programmatically</p>
+                    <p>
+						 To add an event listener to an element with in a <b style="color:blue">shadow boundary</b>, please use <b style="color:red">this.template.addEventListener()</b> method, but
+						to add an event listener to an element that the template doesn’t own, please use <b style="color:red">this.addEventListener()</b> method directly.
+                    </p>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+
+    </lightning-card>
+</template>

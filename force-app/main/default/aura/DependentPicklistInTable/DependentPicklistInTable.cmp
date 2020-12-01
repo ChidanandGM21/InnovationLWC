@@ -1,0 +1,79 @@
+<aura:component controller="PicklistInTable" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="acList" type="List"/>
+    <aura:attribute name="cntrylst" type="List"/>
+    <Lightning:card title="Aura-Add/Delete Rows With Dep. Picklist" iconName="standard:account">
+        <div class="slds-modal__container" style="width: 100%; padding:0px;">
+            
+            
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                    <thead>
+                        <tr class="slds-text-title_caps">
+                            <th scope="col">
+                                <div class="" style="text-transform: capitalize;text-align:center;">S.No.</div>
+                            </th>
+                            
+                            <th scope="col">
+                                <div class="" style="text-transform: capitalize;text-align:center;" title="Make">Country</div>
+                            </th>
+                            <th scope="col">
+                                <div class="" style="text-transform: capitalize;text-align:center;" title="Model">State
+                                </div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" style="text-transform: capitalize;text-align:center;"
+                                     title=" Action	">Action </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {!v.acList.length}
+                        <aura:iteration items="{!v.acList}" var="item" indexVar="index">
+                            <tr class="slds-text-title_caps">
+                                <td style="padding-top: 15px;text-align:center;">
+                                    {!index + 1}
+                                </td>
+                                <td data-label="Interested_In__c" scope="row" style="padding-top: 19px !important; "
+                                    class="{!index}" id="{!index}">
+                                    <lightning:select name="select1" class="hideLab" value="{!item.Account.Country__c}"
+                                                      onchange="{!c.findState}">
+                                        <option value="">choose one...</option>
+                                        <aura:iteration items="{!v.cntrylst}" var="cn">
+                                            <option value="{!cn}">{!cn}</option>
+                                        </aura:iteration>
+                                    </lightning:select>
+                                </td>
+                                <td data-label="Interested_In__c" scope="row" style="padding-top: 19px !important; ">
+                                    
+                                    <lightning:select name="select1" class="hideLab" value="{!item.State__c}">
+                                        <option value="">choose one...</option>
+                                        <aura:iteration items="{!item.stateList}" var="st">
+                                            <option value="{!st}">{!st}</option>
+                                        </aura:iteration>
+                                    </lightning:select>
+                                </td>
+                                <td style="padding-top: 15px;text-align:center;">
+                                    <aura:if isTrue="{!index == 0}">
+                                        <a onclick="{!c.AddNewRow}">
+                                            <lightning:icon iconName="utility:add" class="slds-icon slds-icon_small" size="small" alternativeText="add"/>
+                                            <span class="slds-assistive-text">Add Icon</span>
+                                        </a>    
+                                        <aura:set attribute="else">
+                                            <a onclick="{!c.removeRow}">
+                                                <lightning:icon variant="error" iconName="utility:delete" class="slds-icon slds-icon_small" size="small" alternativeText="icon"/>
+                                                <span class="slds-assistive-text">Delete Icon</span>
+                                            </a>
+                                        </aura:set> 
+                                    </aura:if>
+                                </td>
+                                
+                                
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </Lightning:card>
+</aura:component>
