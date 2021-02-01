@@ -1,6 +1,6 @@
 public class AccountListController {
     @AuraEnabled 
     public static List<Account> getAccounts(){
-        return [Select Id , Name , Rating, Type , Phone from Account];  
+        return [Select Id , Name , Rating, Type , Phone from Account];   
     } 
 }
